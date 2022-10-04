@@ -11,26 +11,7 @@ class ItemValue:
         return self.cost < other.cost
 
 
-def fractionalKnapSack(wt, val, capacity):
-    """Function to get maximum value"""
-    iVal = [ItemValue(wt[i], val[i], i) for i in range(len(wt))]
 
-    # sorting items by value
-    iVal.sort(reverse=True)
-
-    totalValue = 0
-    for i in iVal:
-        curWt = i.wt
-        curVal = i.val
-        if capacity - curWt >= 0:
-            capacity -= curWt
-            totalValue += curVal
-        else:
-            fraction = capacity / curWt
-            totalValue += curVal * fraction
-            capacity = int(capacity - (curWt * fraction))
-            break
-    return totalValue
 
 
 if __name__ == "__main__":
