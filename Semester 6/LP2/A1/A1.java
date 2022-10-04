@@ -45,32 +45,7 @@ class Graph {
         return false;
     }
 
-    void BFS(String s, String d) {
-        HashSet<String> visited = new HashSet<String>();
-
-        LinkedList<String> queue = new LinkedList<String>();
-
-        visited.add(s);
-        queue.add(s);
-
-        while (queue.size() != 0) {
-            s = queue.poll();
-            System.out.print(s+" ");
-
-            if (s.equals(d))
-                return;
-
-            Iterator<String> i = adj.get(s).listIterator();
-            while (i.hasNext()) {
-                String n = i.next();
-                if (!visited.contains(n)) {
-                    visited.add(n);
-                    queue.add(n);
-                }
-            }
-        }
-    }
-
+    
 // A1.png
 
     public static void main(String args[]) {
