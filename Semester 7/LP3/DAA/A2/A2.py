@@ -43,7 +43,25 @@ freq = [5, 9, 12, 13, 16, 45]
 # list containing huffman tree nodes of characters and frequencies
 nodes = [Node(freq[x], chars[x]) for x in range(len(chars))]
 
+while len(nodes) > 1:
+    # sort all the nodes in ascending order based on their frequency
+    nodes = sorted(nodes, key=lambda x: x.freq)
 
+    # pick 2 smallest nodes
+    left = nodes[0]
+    right = nodes[1]
+
+    # assign directional value to these nodes
+    left.huff = 0
+    right.huff = 1
+
+    # combine the 2 smallest nodes to create new node as their parent
+    newNode = Node(left.freq + right.freq, left.symbol + right.symbol, left, right)
+
+    # remove the 2 nodes and add their parent as new node among others
+    nodes.remove(left)
+    nodes.remove(right)
+    nodes.append(newNode)
 
 
 print("Characters :", f'[{", ".join(chars)}]')
