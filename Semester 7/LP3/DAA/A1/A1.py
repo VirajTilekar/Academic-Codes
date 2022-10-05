@@ -8,7 +8,14 @@ def fibonacci(n):
     return fib_list[n]
 
 
-
+def fibonacci_recursive(n):
+    """Recursive fibonacci function"""
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    fib_recur_list[n] = fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)
+    return fib_recur_list[n]
 
 
 N = 20
