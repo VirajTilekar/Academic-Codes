@@ -70,17 +70,7 @@ def merge(left, right):
             j += 1
         k += 1
 
-    while i < len(left):
-        sorted_list[k] = left[i]
-        i += 1
-        k += 1
-
-    while j < len(right):
-        sorted_list[k] = right[j]
-        j += 1
-        k += 1
-
-    return sorted_list
+    
 
 
 @contextmanager
@@ -101,6 +91,17 @@ def parallel_merge_sort(array, ps_count):
     # Divide the list in chunks
     step = int(length / ps_count)
 
+    while i < len(left):
+        sorted_list[k] = left[i]
+        i += 1
+        k += 1
+
+    while j < len(right):
+        sorted_list[k] = right[j]
+        j += 1
+        k += 1
+
+    return sorted_list
     # Instantiate a multiprocessing.Manager object to store the output of each process.
     manager = Manager()
     results = manager.list()
